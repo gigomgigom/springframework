@@ -13,6 +13,9 @@ public class Ch01Controller {
 	@RequestMapping("")
 	public String index() {
 		log.info("info() 실행");
+		log.info("info() 실행1");
+		log.info("info() 실행2");
+		log.info("info() 실행3");
 		return "ch01/index";
 	}
 	
