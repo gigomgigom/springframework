@@ -12,6 +12,7 @@ public class HomeController {
 	@RequestMapping("")
 	public String index() {
 		log.info("index() 실행");
+		log.info("충돌 유발하자! 레볼루시옹!");
 		return "home";
 	}
 }
