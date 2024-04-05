@@ -16,6 +16,7 @@ public class Ch01Controller {
 		log.info("info() 실행1");
 		log.info("info() 실행2");
 		log.info("info() 실행3");
+		log.info("뭐가 바뀌었지?");
 		return "ch01/index";
 	}
 	
