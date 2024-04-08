@@ -8,7 +8,7 @@
 	</Appenders>
 
 	<Loggers>
-		<Logger name="com.mycompany.springframework" level="info"
+		<Logger name="com.mycompany.springframework" level="error"
 			additivity="false">
 			<AppenderRef ref="Out" />
 		</Logger>

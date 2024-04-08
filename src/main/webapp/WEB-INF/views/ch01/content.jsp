@@ -32,7 +32,7 @@
 					</div>
 					<div class="border col-md-8">			
 						<div class="card">
-							<div class="card-header">home</div>
+							<div class="card-header">content</div>
 							<div class="card-body">content</div>
 						</div>
 					</div>
