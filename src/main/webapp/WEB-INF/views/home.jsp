@@ -1,3 +1,4 @@
+<%-- 위에 코드는 페이지 지시자 : page 서버(WAS)에서 JSP 해석하는 방법을 기술한다. --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,11 +25,20 @@
 	</head>
 	<body>	<!-- 뷰포트의 크기의 100퍼센트 -->
 		<div class="d-flex flex-column vh-100">
+		
+			<!-- 마크업language 주석 (의견 및 코멘트 용도) -->
+			<%-- jsp 주석 (의견 및 코멘트 용도 이외 자바 코드 주석처리용) --%>
+			
+			<!-- include 지시자 : 파일 내부의 소스를 복사해서 지시자 위치에 붙여넣는 기능 -->
 			<%@ include file="/WEB-INF/views/common/header.jsp" %>
+			
 			<div class="flex-grow-1 m-2">
 				<div class="d-flex row">
 					<div class="col-md-4">			
-						<%@ include file="/WEB-INF/views/common/menu.jsp" %>
+					
+						<!-- include 액션은 외부에서 실행하고 결과만 현재 위치에 삽입한다. -->
+						<jsp:include page="/WEB-INF/views/common/menu.jsp"/>
+						
 					</div>
 					<div class="border col-md-8">			
 						<div class="card">

@@ -13,8 +13,8 @@
 			data-bs-parent="#accordionExample">
 			<div class="accordion-body">
 				<ul>
-					<li><a href="/springframework/ch01/content">content</a></li>
-					<li>item2</li>
+					<li><a href="${pageContext.request.contextPath}/">프로젝트 설정</a></li>
+					<li><a href="${pageContext.request.contextPath}/ch01/content">공통 레이아웃구성</a></li>
 				</ul>
 			</div>
 		</div>
