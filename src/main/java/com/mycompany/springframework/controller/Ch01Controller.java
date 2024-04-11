@@ -3,6 +3,7 @@ package com.mycompany.springframework.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,8 +25,10 @@ public class Ch01Controller {
 	}
 	
 	@RequestMapping("/content")
-	public String content() {
+	public String content(String chNum, Model model) {
 		LOGGER.error("content()실행 ㅎ");
+		
+		model.addAttribute("chNum", chNum);
 		return "ch01/content";
 	}
 	
