@@ -20,6 +20,7 @@
 	</div>
 	<div class="accordion-item">
 		<h2 class="accordion-header">
+											<!-- EL(표현식) 하나의 값을 산출하는 식 -->
 			<button class="accordion-button ${chNum=='ch02'?'':'collapsed'}" type="button"
 				data-bs-toggle="collapse" data-bs-target="#collapseTwo"
 				aria-expanded="true" aria-controls="collapseTwo">
@@ -32,6 +33,11 @@
 				<ul>
 					<li><a href="${pageContext.request.contextPath}/ch02/getMethod?chNum=ch02">GET 방식</a></li>
 					<li><a href="${pageContext.request.contextPath}/ch02/postMethod?chNum=ch02">POST 방식</a></li>
+					<li><a href="${pageContext.request.contextPath}/ch02/modelAndViewReturn?chNum=ch02">Model&View Return</a></li>
+					<li><a href="${pageContext.request.contextPath}/ch02/voidReturn?chNum=ch02">Void Return</a></li>
+					<li><a href="${pageContext.request.contextPath}/ch02/objectReturn?chNum=ch02">Object Return</a></li>
+					<li><a href="${pageContext.request.contextPath}/ch02/testAuthInterceptor1?chNum=ch02">testAuthInterceptor1(로그인 없이)</a></li>
+					<li><a href="${pageContext.request.contextPath}/ch02/testAuthInterceptor2?chNum=ch02">testAuthInterceptor2(로그인 필요)</a></li>
 				</ul>
 			</div>
 		</div>
