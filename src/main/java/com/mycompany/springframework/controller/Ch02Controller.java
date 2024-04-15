@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mycompany.springframework.dto.FileInfo;
+import com.mycompany.springframework.dto.Ch02FileInfo;
 import com.mycompany.springframework.interceptor.Auth;
 
 import lombok.extern.slf4j.Slf4j;
@@ -152,31 +152,34 @@ public class Ch02Controller {
 	
 	@GetMapping("/objectReturn")
 	public String objectReturn(String chNum, Model model) {
-		model.addAttribute(chNum);
+		model.addAttribute("chNum", chNum);
 		return "ch02/objectReturn";
 	}
 	
 	@GetMapping(value = "/objectReturnJson1", produces= "application/json; charset=UTF-8")
 	@ResponseBody //리턴된 객체를 JSON객체로 해석하고 응답 본문에 넣겠다.
-	public String objectReturnJson1() {
+	public String objectReturnJson1(String chNum, Model model) {
 		log.info("objectReturnJson1 실행");
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("fileName", "photo1.jpg");
+		model.addAttribute("chNum", chNum);
 		return jsonObject.toString();
 	}
 	
 	@GetMapping(value = "/objectReturnJson2", produces = "application/json; charset=UTF-8")
 	@ResponseBody //리턴된 객체를 JSON객체로 변환하고 응답 본문에 넣겠다.
-	public FileInfo objectReturnJson2() {
-		FileInfo fileInfo = new FileInfo();
+	public Ch02FileInfo objectReturnJson2(String chNum, Model model) {
+		Ch02FileInfo fileInfo = new Ch02FileInfo();
 		fileInfo.setFileName("photo2.jpg");
 		fileInfo.setInfo("아름다운 풍경사진");
+		model.addAttribute("chNum", chNum);
 		return fileInfo;
 	}
 	
 	@GetMapping("/testAuthInterceptor1")
 	public String testAuthInterceptor1(String chNum, Model model) {
 		log.info("testAuthInterceptor1() 실행");
+		model.addAttribute("chNum", chNum);
 		return "ch02/testAuthInterceptor1";
 	}
 	
@@ -184,6 +187,7 @@ public class Ch02Controller {
 	@GetMapping("/testAuthInterceptor2")
 	public String testAuthInterceptor2(String chNum, Model model) {
 		log.info("testAuthInterceptor2() 실행");
+		model.addAttribute("chNum", chNum);
 		return "ch02/testAuthInterceptor2";
 	}
 }
