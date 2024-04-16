@@ -24,9 +24,9 @@ public class Ch04LoginFormValidator implements Validator {
 		//아이디 검사
 		String mid = loginForm.getMid();
 		if(mid==null || mid.equals("")) {
-			errors.rejectValue("mid", null, "ID는 반드시 입력되어야 합니다.");
+			errors.rejectValue("mid", "errors.mid.required", "ID는 반드시 입력되어야 합니다.");
 		} else if(mid.length() < 6 || mid.length() > 12) {
-			errors.rejectValue("mid", null, "ID는 6자 이상, 12자 이하로 입력해야합니다.");
+			errors.rejectValue("mid", "errors.mid.length", new String[] {"6", "12"}, "ID는 6자 이상, 12자 이하로 입력해야합니다.");
 		}
 		
 		//비밀번호 검사
