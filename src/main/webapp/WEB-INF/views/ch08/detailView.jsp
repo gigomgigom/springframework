@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- uri에 지정된 태그들을 사용하기 위해서는 앞에 form을 붙여주면 된다. -->
 <!DOCTYPE html>
 <html>
 <head>
 <!-- 사용자 정의 자바스크립트 -->
 <script>
-	
+	function addCartItem() {
+		var pno = ${product.pno};
+		var amount = $("#amount").val();
+		
+		location.href = "addCartItem?pno="+pno+"&amount="+amount;
+	}
 </script>
 <!-- jQuery 외부 라이브러리 설정 -->
 <script
@@ -38,9 +44,16 @@
 				</div>
 				<div class="border col-md-8">
 					<div class="card">
-						<div class="card-header">sessionData</div>
+						<div class="card-header">상품정보</div>
 						<div class="card-body">
-							
+							<p>${product.pno}</p>
+							<p>${product.pname}</p>
+							<p>${product.pprice}</p>
+							<hr/>
+							<div>
+								수량: <input type="number" id="amount" value="1"/>
+							</div>
+							<button onclick="addCartItem()" class="mt-3 btn btn-info btn-sm">장바구니 넣기</button>
 						</div>
 					</div>
 				</div>

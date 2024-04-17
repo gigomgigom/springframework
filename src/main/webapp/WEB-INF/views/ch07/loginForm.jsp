@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- uri에 지정된 태그들을 사용하기 위해서는 앞에 form을 붙여주면 된다. -->
 <!DOCTYPE html>
 <html>
@@ -38,9 +38,28 @@
 				</div>
 				<div class="border col-md-8">
 					<div class="card">
-						<div class="card-header">applicationData</div>
+						<div class="card-header">loginForm</div>
 						<div class="card-body">
-							<p>방문자 수: ${counter}
+							<c:if test="${login=='success'}">
+								<a href="sessionLogout" class="btn btn-danger btn-sm">로그아웃</a>
+							</c:if>
+							<c:if test="${login!='success'}">
+								<form class="m-2" method="post" action="sessionLogin">
+									<input type="hidden" name="chNum" value="ch02" />
+									<div class="form-group mb-2">
+										<label for="mid">아이디</label> <input type="text"
+											class="form-control" id="mid" name="mid" value="">
+									</div>
+
+									<div class="form-group mb-2">
+										<label for="mpassword">패스워드</label> <input type="password"
+											class="form-control" id="mpassword" name="mpassword" value="">
+									</div>
+
+									<!-- 제출 버튼 : 양식의 데이터를 서버로 보내겠다. -->
+									<button type="submit" class="btn btn-info btn-sm">로그인</button>
+								</form>
+							</c:if>
 						</div>
 					</div>
 				</div>

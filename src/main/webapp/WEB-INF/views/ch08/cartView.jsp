@@ -1,13 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- uri에 지정된 태그들을 사용하기 위해서는 앞에 form을 붙여주면 된다. -->
 <!DOCTYPE html>
 <html>
 <head>
 <!-- 사용자 정의 자바스크립트 -->
 <script>
-	
+	function updateCartItem(pno) {
+		var amount = $("#amount"+pno).val();
+		$.ajax({
+			url: "updateCartItem",
+			method: "post",
+			data: {pno: pno, amount: amount},
+			success: function(data) {
+				console.log(data);
+			}
+		});
+	}
 </script>
 <!-- jQuery 외부 라이브러리 설정 -->
 <script
@@ -38,9 +49,32 @@
 				</div>
 				<div class="border col-md-8">
 					<div class="card">
-						<div class="card-header">applicationData</div>
+						<div class="card-header">장바구니</div>
 						<div class="card-body">
-							<p>방문자 수: ${counter}
+							<table class="table table-striped border">
+								<thead class="table-warning">
+									<tr>
+										<th>번호</th>
+										<th>상품명</th>
+										<th>가격</th>
+										<th>수량</th>
+										<th>수정 및 삭제</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="cartItem" items="${cart}">
+										<tr>
+											<td>${cartItem.product.pno}</td>
+											<td>${cartItem.product.pname}</td>
+											<td>${cartItem.product.pprice}</td>
+											<td><input type="number" id="amount${cartItem.product.pno}" value="${cartItem.amount}" style="width:50px"/></td>
+											<td>
+												<button onclick="updateCartItem(${cartItem.product.pno})" class="btn btn-info btn-sm">수정</button>
+												<a href="removeCartItem?pno=${cartItem.product.pno}" class="btn btn-danger btn-sm">삭제</a>								
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>

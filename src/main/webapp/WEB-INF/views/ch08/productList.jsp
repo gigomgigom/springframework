@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- uri에 지정된 태그들을 사용하기 위해서는 앞에 form을 붙여주면 된다. -->
 <!DOCTYPE html>
 <html>
@@ -38,9 +39,26 @@
 				</div>
 				<div class="border col-md-8">
 					<div class="card">
-						<div class="card-header">applicationData</div>
+						<div class="card-header">상품목록</div>
 						<div class="card-body">
-							<p>방문자 수: ${counter}
+							<table class="table table-striped border">
+								<thead class="table-warning">
+									<tr>
+										<th>번호</th>
+										<th>상품명</th>
+										<th>가격</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="product" items="${productList}">
+										<tr>
+											<td>${product.pno}</td>
+											<td><a href="detailView?pno=${product.pno}">${product.pname}</a></td>
+											<td>${product.pprice}</td>											
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
