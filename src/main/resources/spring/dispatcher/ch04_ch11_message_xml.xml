@@ -4,7 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="message/ch04_error"/>
+		<property name="basenames">
+			<list>
+				<value>message/ch04_error</value>
+				<value>message/ch11_internationalization</value>
+			</list>
+		</property>
 	</bean>
 
 </beans>
