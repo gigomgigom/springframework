@@ -18,4 +18,41 @@
 		<constructor-arg ref="ch12Dao1"/>
 		<constructor-arg ref="ch12Dao2"/>
 	</bean>
+	
+	 <bean id="ch12Service7"
+         class="com.mycompany.springframework.service.Ch12Service7">
+         <property name="list">
+         	<list>
+         		<value>아이템1</value>
+         		<value>아이템2</value>
+         		<value>아이템3</value>
+         	</list>
+         </property>
+         
+         <property name="set">
+         	<set>
+         		<value>아이템1</value>
+         		<value>아이템2</value>
+         		<!-- 만약 service안에 존재하는 set안에 bean객체를 주입하기 위해서는 아래와 같이 빈객체 아이디를 입력해준다. -->
+         		<ref bean="ch12Dao1"/>
+         		<ref bean="ch12Dao2"/>      		
+         	</set>
+         </property>
+         
+         <property name="map">
+         	<map>
+         		<entry key="key1" value="심영조"/>
+         		<!-- 빈 객체의 아이디를 넣어서 객체로 set할 수 있게 함-->
+         		<!-- <entry key="key2" value-ref="daoByXm11"/> -->
+         	</map>
+         </property>
+         
+         <property name="prop">
+         	<props>
+         		<prop key="key1">value1</prop>
+ 				<prop key="key2">value2</prop>        	
+         	</props>
+         </property>
+     </bean>
+	
 </beans>

@@ -34,6 +34,7 @@
                      <div class="card-header">XML 설정 관리빈 의존성 주입.</div>
                      <div class="card-body">
                      	<p>spring/root/ch12_di_by_xml.xml.xml 참조</p>
+                     	
                   	</div>
                   </div>
                </div>
