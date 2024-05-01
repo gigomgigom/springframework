@@ -3,8 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<!-- JDBC타입을 파라미터에 제공하지 않을때 null값을 처리한 JDBC타입을 명시한다. -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
 	<!-- 클래스명의 이름을 짧게 지시한다. -->
 	<typeAliases>
 		<typeAlias type="com.mycompany.springframework.dto.Ch13Board" alias="Ch13Board"/>
+		<typeAlias type="com.mycompany.springframework.dto.Ch13Pager" alias="Ch13Pager"/>
 	</typeAliases>
 </configuration>
