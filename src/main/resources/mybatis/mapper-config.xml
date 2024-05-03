@@ -11,6 +11,8 @@
 	<!-- 클래스명의 이름을 짧게 지시한다. -->
 	<typeAliases>
 		<typeAlias type="com.mycompany.springframework.dto.Ch13Board" alias="Ch13Board"/>
+		<typeAlias type="com.mycompany.springframework.dto.Ch15Account" alias="Ch15Account"/>
+		<typeAlias type="com.mycompany.springframework.dto.Ch17Member" alias="Ch17Member"/>
 		<typeAlias type="com.mycompany.springframework.dto.Ch13Pager" alias="Ch13Pager"/>
 	</typeAliases>
 </configuration>
